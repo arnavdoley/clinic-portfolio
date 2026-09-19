@@ -1,0 +1,153 @@
+/* src/components/layout/NavBar/NavBar.module.css */
+
+.header {
+  position: fixed;
+  top: 1.25rem;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  padding: 0 1.25rem;
+  pointer-events: none;
+
+  /* Default visible state */
+  transform: translateY(0);
+  opacity: 1;
+
+  /* Slower, softer entrance/exit curve */
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, opacity;
+}
+
+.header.hidden {
+  transform: translateY(-160%) !important;
+  opacity: 0 !important;
+
+  /* Slightly faster slide away so it gets out of the way smoothly */
+  transition: transform 0.5s cubic-bezier(0.32, 0, 0.67, 0),
+              opacity 0.4s ease-in;
+}
+
+/* Off-screen hidden state (use !important to override any inherited transform) */
+.header.hidden {
+  transform: translateY(-150%) !important;
+  opacity: 0 !important;
+}
+
+/* Pill Container */
+.navInner {
+  pointer-events: auto;
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.75rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  transition: padding 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Scrolled state styling */
+.header.scrolled .navInner {
+  background: rgba(255, 255, 255, 0.94);
+  border-color: rgba(232, 213, 213, 0.7);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  padding: 0.65rem 1.75rem;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+}
+
+.clinicName {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+}
+
+.clinicTag {
+  font-size: 0.7rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* Navigation Links */
+.links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Tighter gap so the pills look cohesive */
+}
+
+.navLink {
+  position: relative;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #334155;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px; /* Pill shape */
+  
+  /* Smooth transition for background, text color, and subtle lift */
+  transition: 
+    background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.25s ease,
+    transform 0.2s ease;
+}
+
+/* Hover effect: dark charcoal/black pill with white text */
+.navLink:hover {
+  background-color: #0f172a;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* Subtle click feedback */
+.navLink:active {
+  transform: translateY(0) scale(0.97);
+  background-color: #1e293b;
+}
+
+/* Remove the old underline indicator */
+.navLink::after {
+  display: none;
+}
+
+.callButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background-color: #0f172a;
+  color: #ffffff;
+  padding: 0.55rem 1.15rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.callButton:hover {
+  background-color: #1e293b;
+}
+
+@media (max-width: 768px) {
+  .header {
+    top: 0.75rem;
+    padding: 0 0.75rem;
+  }
+  .navInner {
+    padding: 0.75rem 1rem;
+  }
+  .links {
+    display: none;
+  }
+}

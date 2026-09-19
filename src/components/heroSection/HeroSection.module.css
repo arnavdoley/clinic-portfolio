@@ -1,0 +1,191 @@
+/* Animation for the hero card */
+@keyframes heroCardEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(calc(-50% + 28px));
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-50%);
+  }
+}
+
+/* Staggered text fade-up inside the card */
+@keyframes fadeInContent {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.container {
+  position: relative;
+  width: 100vw;
+  height: 85vh;
+  min-height: 560px;
+  overflow: hidden;
+}
+
+.heroImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Single Frosted Glass Card */
+.card {
+  position: absolute;
+  top: 55%;
+  left: 6%;
+  /* Default transform handled by animation */
+  transform: translateY(-50%);
+  z-index: 10;
+  max-width: 460px;
+  padding: 2.25rem;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 20px;
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
+
+  /* Trigger the on-load entrance */
+  animation: heroCardEnter 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+/* Subtle staggered entry for inner elements */
+.badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #2563eb;
+  background: rgba(37, 99, 235, 0.08);
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+  margin-bottom: 1rem;
+  animation: fadeInContent 0.6s ease-out 0.15s both;
+}
+
+.title {
+  font-size: 2.1rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+  animation: fadeInContent 0.6s ease-out 0.25s both;
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #475569;
+  margin-bottom: 1.5rem;
+  animation: fadeInContent 0.6s ease-out 0.35s both;
+}
+
+.actionGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1.5rem;
+  animation: fadeInContent 0.6s ease-out 0.45s both;
+}
+
+.primaryButton {
+  background-color: #0f172a;
+  color: #ffffff;
+  padding: 0.75rem 1.4rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.15s ease;
+}
+
+.primaryButton:hover {
+  background-color: #1e293b;
+}
+
+.secondaryButton {
+  background-color: transparent;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  padding: 0.75rem 1.25rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.secondaryButton:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #0f172a;
+  border-color: #94a3b8;
+}
+
+.ratingRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(226, 232, 240, 0.8);
+  animation: fadeInContent 0.6s ease-out 0.55s both;
+}
+
+.stars {
+  color: #f59e0b;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+}
+
+.ratingText {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #64748b;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  @keyframes heroCardEnterMobile {
+    0% {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .card {
+    left: 1rem;
+    right: 1rem;
+    max-width: none;
+    top: auto;
+    bottom: 1.5rem;
+    padding: 1.5rem;
+    animation: heroCardEnterMobile 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .actionGroup {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    text-align: center;
+  }
+}

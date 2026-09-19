@@ -1,0 +1,149 @@
+.section {
+  padding: 5rem 1.5rem;
+  background-color: #FAF5F5; /* Matches the soft blush palette */
+}
+
+.container {
+  max-width: 1152px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #64748b;
+  margin-bottom: 0.35rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+
+.ratingSummary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.stars {
+  display: flex;
+  gap: 2px;
+}
+
+.ratingText {
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+.ratingText strong {
+  color: #0f172a;
+}
+
+/* Review Cards Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.card {
+  background-color: #ffffff;
+  border: 1px solid #F1E3E4;
+  border-radius: 16px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+.cardStars {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 1rem;
+}
+
+.comment {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #334155;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.patientMeta {
+  border-top: 1px solid #f1f5f9;
+  padding-top: 1rem;
+}
+
+.patientInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.nameRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.name {
+  font-size: 0.95rem;
+  color: #0f172a;
+}
+
+.verifiedBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #059669;
+  background-color: #ecfdf5;
+  padding: 2px 6px;
+  border-radius: 9999px;
+}
+
+.procedure {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #2563eb;
+}
+
+.timeline {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+/* Tablet & Mobile */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .title {
+    font-size: 1.75rem;
+  }
+}
